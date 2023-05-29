@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Таблица умножения числа {{ number }}</h1>
+    <table>
+        <tr>
+            <th>Умножение</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Ввести новое число:</h2>
+    <form action="/result" method="post">
+        <label for="number">Введите число:</label>
+        <input type="number" id="number" name="number" required>
+        <button type="submit">Умножить</button>
+    </form>
+</body>
+</html>
